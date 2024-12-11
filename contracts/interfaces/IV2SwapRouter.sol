@@ -11,12 +11,14 @@ interface IV2SwapRouter {
     /// @param amountIn The amount of token to swap
     /// @param amountOutMin The minimum amount of output that must be received
     /// @param path The ordered list of tokens to swap through
+    /// @param fees The fee for each pair in the path
     /// @param to The recipient address
     /// @return amountOut The amount of the received token
     function swapExactTokensForTokens(
         uint256 amountIn,
         uint256 amountOutMin,
         address[] calldata path,
+        uint256[] calldata fees,
         address to
     ) external payable returns (uint256 amountOut);
 
@@ -24,12 +26,14 @@ interface IV2SwapRouter {
     /// @param amountOut The amount of token to swap for
     /// @param amountInMax The maximum amount of input that the caller will pay
     /// @param path The ordered list of tokens to swap through
+    /// @param fees The fee for each pair in the path
     /// @param to The recipient address
     /// @return amountIn The amount of token to pay
     function swapTokensForExactTokens(
         uint256 amountOut,
         uint256 amountInMax,
         address[] calldata path,
+        uint256[] calldata fees,
         address to
     ) external payable returns (uint256 amountIn);
 }
